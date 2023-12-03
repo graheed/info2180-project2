@@ -31,3 +31,7 @@ CREATE TABLE IF NOT EXISTS Notes (
     created_at DATETIME DEFAULT NOW()
 );
 
+INSERT INTO Users (firstname, lastname, password, email, role)
+VALUES ("Nikola", "Tesla", "$2y$10$gW/tclXlJgGKzl0/wKhXwuSbvSSogfKyZlqgemrfz42O1Wtenfn5G", "admin@project2.com", "Admin");
+
+

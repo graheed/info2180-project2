@@ -33,3 +33,7 @@ node_modules/
 *.tmp
 *.sublime-workspace
 *.sublime-project
+token
+index.html
+test.js
+styles.css
