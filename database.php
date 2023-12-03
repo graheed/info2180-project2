@@ -1,6 +1,7 @@
 <?php
 require __DIR__ . '/vendor/autoload.php';
 require_once 'userhelper.php';
+
 class Database {
     private static $instance = null;
     private $connection;
@@ -16,23 +17,20 @@ class Database {
         $password = $_ENV['DB_PASSWORD'];
 
         $pdo = new PDO("mysql:host=$host;port=$port", $username, $password);
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        //$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $stmt = $pdo->prepare("SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = ?");
-        $stmt->execute([$database]);
-        if ($stmt->rowCount() == 0){
-            $pdo->exec("CREATE DATABASE `$database`");
-            $pdo->exec("USE `$database`");
-            $customInitScript = file_get_contents(__DIR__ . '/database/schema.sql');
-            $pdo->exec($customInitScript);
-            $this->connection = $pdo;
+        $pdo->exec("DROP DATABASE IF EXISTS `$database`");
+        $pdo->exec("CREATE DATABASE `$database`");
+        $pdo->exec("USE `$database`");
 
-        } else {
-            $pdo->exec("USE `$database`");
-            $this->connection = $pdo;
-        }
+        $customInitScript = file_get_contents(__DIR__ . '/database/schema.sql');
 
-        }
+        $pdo->exec($customInitScript);
+
+        UserHelper::register($pdo, "Nikola", "Tesla", "password123", "admin@project2.com", "Admin");
+
+        $this->connection = $pdo;
+    }
 
     public static function getInstance() {
         if (self::$instance == null) {
@@ -46,6 +44,4 @@ class Database {
         return $this->connection;
     }
 }
-// $dbInstance = Database::getInstance();
-// $_SESSION['db'] = $dbInstance;
 ?>
