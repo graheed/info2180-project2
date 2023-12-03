@@ -1,0 +1,4 @@
+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
+
+INSERT INTO Users (firstname, lastname, password, email, role)
+VALUES ("Nikola", "Tesla", "password123", "admin@project2.com", "Admin");

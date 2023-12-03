@@ -1,5 +1,6 @@
 <?php
 require 'database.php';
+require_once 'userhelper.php';
 
 $db = Database::getInstance()->getConnection();
 
@@ -10,4 +11,15 @@ while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
     }
     echo "<hr>";
 }
+
+//simple login test
+$emailToLogin = "admin@project2.com";
+$passwordToLogin = "password1234";
+
+if (UserHelper::login($db, $emailToLogin, $passwordToLogin)) {
+    echo "Login successful for $emailToLogin";
+} else {
+    echo "Login failed for $emailToLogin";
+}
+
 ?>

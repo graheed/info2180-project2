@@ -1,5 +1,6 @@
 <?php
 require __DIR__ . '/vendor/autoload.php';
+require_once 'userhelper.php';
 
 class Database {
     private static $instance = null;
@@ -25,6 +26,8 @@ class Database {
         $customInitScript = file_get_contents(__DIR__ . '/database/schema.sql');
 
         $pdo->exec($customInitScript);
+
+        UserHelper::register($pdo, "Nikola", "Tesla", "password123", "admin@project2.com", "Admin");
 
         $this->connection = $pdo;
     }
