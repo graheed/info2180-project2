@@ -76,6 +76,7 @@ switch($action) {
         break;
 
     case 'home':
+        $contacts = UserHelper::getContacts($db);
         echo '<section class="dashboard-home" id="home">
 
         <div class="home-dashboard-contents">
@@ -120,18 +121,141 @@ switch($action) {
                     <th>Company</th>
                     <th>Type</th>
                     <th> </th>
-                </tr>
+                </tr>';
+                foreach ($contacts as $contact) {
+                    $fullName = $contact['title'] . '. ' . $contact['firstname'] . ' ' . $contact['lastname'];
+                    echo '<tr>
+                            <td>' . $fullName . '</td>
+                            <td>' . $contact['email'] . '</td>
+                            <td>' . $contact['company'] . '</td>
+                            <td>' . $contact['type'] . '</td>
+                            <td>' . $contact['type'] . '</td>
+                            </tr>';
+                }
 
-                <tr>
-                    <td value="">Mr. Josiah-John Green </td>
-                    <td value="">josiahjohngreen@gmail.com</td>
-                    <td value="">StackGROW Ltd</td>
-                    <td value="">Sales Lead</td>
-                    <td value=""><button class="table-btn" id="table-view-button"> View </button></td>
-                </tr>
-            <table>  
+            echo '<table>  
         </div>                   
         </section>';
+        break;
+    case 'newContact':
+        echo '<section class="dashboard-contacts" id="contacts">
+    
+            <div class="contact-dashboard-contents">
+                <h1 class="contacts-title">New Contact</h1>
+            </div>
+            
+            <div class="contact-form-wrapper">
+                <form action="" class="form" id="contact-form">        
+                    <div class="contact-form-content">
+                        <div class="contact-form-box">
+                            <div class="contact-form-box-input"> 
+                                <label for="dropdown" class="contact-form-label">
+                                    Title
+                                </label>
+            
+                                <select class="contact-form-input" id="dropdown" name="title-dropdown">
+                                    <option value="Mr">Mr</option>
+                                    <option value="Mrs">Mrs</option>
+                                    <option value="Ms">Ms</option>
+                                    <option value="Dr">Dr</option>
+                                    <option value="Prof">Prof</option>
+                                </select>
+                            </div>
+                        </div>    
+            
+                        <div class="contact-form-box">       
+                            <div class="contact-form-box-input">
+                                <label for="fname" class="contact-form-label">
+                                    First Name
+                                </label>
+            
+                                <input type="text" class="contact-form-input" placeholder="Jane" id="fname">
+                            </div>   
+                            
+                            <div class="contact-form-box-input">
+                                <label for="lname" class="contact-form-label">
+                                    Last Name
+                                </label>
+            
+                                <input type="text" class="contact-form-input" placeholder="Doe" id="lname">
+                            </div>    
+                        </div> 
+                        
+                        <div class="contact-form-box">       
+                            <div class="contact-form-box-input">
+                                <label for="email" class="contact-form-label">
+                                    Email
+                                </label>
+            
+                                <input type="email" class="contact-form-input" placeholder="someone@example.com" id="email">
+                            </div>    
+                            
+                            <div class="contact-form-box-input">
+                                <label for="telephone" class="contact-form-label">
+                                    Telephone
+                                </label>
+            
+                                <input type="tel" class="contact-form-input" placeholder=" " id="tele">
+                            </div>        
+                        </div> 
+                        
+                        <div class="contact-form-box">       
+                            <div class="contact-form-box-input">
+                                <label for="company" class="contact-form-label">
+                                    Company
+                                </label>
+            
+                                <input type="text" class="contact-form-input" placeholder=" " id="company">
+                            </div>    
+                            
+                            <div class="contact-form-box-input">
+                                <label for="dropdown" class="contact-form-label">
+                                    Type
+                                </label>
+            
+                                <select class="contact-form-input" id="dropdown" name="type-dropdown">
+                                    <option value="Sales Lead">Sales Lead</option>
+                                    <option value="Support">Support</option>
+                                </select>
+                            </div>        
+                        </div>
+                        
+                        <div class="contact-form-box"> 
+                            <div class="contact-form-box-input"> 
+                                <label for="dropdown" class="contact-form-label">
+                                    Assigned To
+                                </label>
+                                <select class="contact-form-input" id="dropdown" name="assigned-dropdown">';
+        $users = UserHelper::getUsers($db);
+        foreach ($users as $user) {
+            $fullName = $user['firstname'] . ' ' . $user['lastname'];
+            echo '<option value="' . $user['id'] .'">' . $fullName . '</option>';
+        }
+        echo '</select>
+                            </div>    
+                        </div>
+                    </div>
+                    <button type="button" class="btn" id="contact-btn">Save</button>
+                </form>
+            </div>  
+        </section>';
+        break;
+
+    case 'addNewContact':
+        $formData = json_decode($_POST['formData'], true);
+        $title = $formData['title'];
+        $fname = $formData['fname'];
+        $lname = $formData['lname'];
+        $email = $formData['email'];
+        $tele = $formData['tele'];
+        $company = $formData['company'];
+        $type = $formData['type'];
+        $assignedTo = $formData['assignedTo'];
+        if (UserHelper::createContact($db, $title, $fname, $lname, $email, $tele, $company, $type, $assignedTo)) {
+            echo 'success';
+        } else {
+            echo 'failure';
+        }
         break;
 
 

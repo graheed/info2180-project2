@@ -57,6 +57,9 @@ class UserHelper {
         if ($user && password_verify($password, $user['password'])) {
             $_SESSION['user_role'] = $user['role'];
             $_SESSION['userfname'] = $user['firstname'];
+            $_SESSION['userlname'] = $user['lastname'];
+            $_SESSION['user_id'] = $user['id'];
+
             return true;
         } else {
             return false;
@@ -81,6 +84,54 @@ class UserHelper {
         return $users;
 
     }
+
+    public static function getContacts($db) {
+        $result = $db->prepare('SELECT * FROM Contacts');
+
+        $result->execute();
+        $users = $result->fetchAll(PDO::FETCH_ASSOC);
+        return $users;
+
+    }
+
+    public static function createContact($db, $title, $firstname, $lastname, $email, $telephone, $company, $type, $assigned_to) {
+        
+        $contactExistsQuery = 'SELECT * FROM Contacts WHERE email = :email';
+        $contactExistsStatement = $db->prepare($contactExistsQuery);
+    
+        $contactExistsParams = array(
+            ':email' => $email
+        );
+    
+        $contactExistsStatement->execute($contactExistsParams);
+        $existingContact = $contactExistsStatement->fetch(PDO::FETCH_ASSOC);
+    
+        if ($existingContact !== false) {
+            return false;
+        }
+    
+        // Contact does not exist, proceed with creation
+        $insertQuery = 'INSERT INTO Contacts (title, firstname, lastname, email, telephone, company, type, assigned_to, created_by)
+                        VALUES (:title, :firstname, :lastname, :email, :telephone, :company, :type, :assigned_to, :created_by)';
+        $insertStatement = $db->prepare($insertQuery);
+    
+        $params = array(
+            ':title' => $title,
+            ':firstname' => $firstname,
+            ':lastname' => $lastname,
+            ':email' => $email,
+            ':telephone' => $telephone,
+            ':company' => $company,
+            ':type' => $type,
+            ':assigned_to' => $assigned_to,
+            ':created_by' => $_SESSION['user_id']
+        );
+    
+        $insertResult = $insertStatement->execute($params);
+        return true;
+    }
+    
+
 
     private static function isAdmin() {
         return strcmp($_SESSION['user_role'], 'Admin') == 0;

@@ -88,7 +88,6 @@ session_start();
                     echo '<script type="text/javascript">',
                     "$(document).ready(function() {",
                     "$('a[href=\"#home\"]').trigger('click');",
-                    "console.log('here');",
                     "});",
                     '</script>';
                     unset($_SESSION['just_logged_in']);
