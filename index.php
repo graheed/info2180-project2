@@ -15,6 +15,7 @@
         <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
         <link rel = "stylesheet" href = "https://unicons.iconscout.com/release/v4.0.8/css/line.css"> 
 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <script src="dolphin.js"></script>
 	</head>
 
@@ -65,8 +66,7 @@
 
                         <li class = "nav-item">
                             <i class="uil uil-signout"></i>
-
-                            <a href = "log.html" class = "nav-link"> 
+                            <a href = "#" class = "nav-link" id="logoutLink"> 
                                 Log Out 
                             </a>
                         </li>

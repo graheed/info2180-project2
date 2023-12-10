@@ -14,6 +14,7 @@
         <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
         <link rel = "stylesheet" href = "https://unicons.iconscout.com/release/v4.0.8/css/line.css"> 
 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <script src="dolphin.js"></script>
     </head>
 
@@ -57,7 +58,7 @@
                         </div>  
                     </div>
 
-                    <button type ="submit" class="login-btn" id="form-btn" onclick="">Login</button> <!-- Note: JS Needed -->
+                    <button type ="button" class="login-btn" id="form-btn">Login</button> <!-- Note: JS Needed -->
 
 
                 </form>
