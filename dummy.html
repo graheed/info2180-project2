@@ -1,0 +1,348 @@
+<!-- <section class="dashboard-home" id="home">
+
+                <div class="home-dashboard-contents">
+                    <h1 class="home-title">Dashboard</h1>
+                    <button class="btn"id="home-btn" onclick=""> Add Contact </button>
+                </div>
+
+                <div class="home-area-contents">
+
+                    <div class="home-filter">
+                        
+                        <div class="filter">
+                            <i class="fa-solid fa-filter"></i> 
+                            <h6 class="filter-title"> Filter By: </h6>
+                        </div>
+
+                        <nav class = "nav">                  
+                            <ul class = "nav-list">
+                                <li class = "nav-item">
+                                    <a href = "" class = "nav-link"> All </a>
+                                </li>
+            
+                                <li class = "nav-item">
+                                    <a href = "" class = "nav-link"> Sales Leads </a>
+                                </li>
+            
+                                <li class = "nav-item">
+                                    <a href = "" class = "nav-link"> Support </a>
+                                </li>
+
+                                <li class = "nav-item">
+                                    <a href = "" class = "nav-link"> Assigned to me </a>
+                                </li>
+                            </ul> 
+                        </nav>
+                    </div>
+
+                    <table id="home-table">
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Company</th>
+                            <th>Type</th>
+                            <th> </th>
+                        </tr>
+
+                        <tr>
+                            <td value="">Mr. Josiah-John Green </td>
+                            <td value="">josiahjohngreen@gmail.com</td>
+                            <td value="">StackGROW Ltd</td>
+                            <td value="">Sales Lead</td>
+                            <td value=""><button class="table-btn" id="table-view-button"> View </button></td>
+                        </tr>
+                    <table>  
+                </div>                   
+            </section> -->
+
+            <section class="dashboard-contacts" id="contacts">
+
+                <div class="contact-dashboard-contents">
+                    <h1 class="contacts-title">New Contact</h1>
+                </div>
+
+                <div class="contact-form-wrapper">
+                    <form action="" class="form" id="contact-form">        
+                        <div class="contact-form-content">
+                            <div class="contact-form-box">
+                                <div class="contact-form-box-input"> 
+                                    <label for="dropdown" class = "contact-form-label">
+                                        Title
+                                    </label>
+
+                                    <select class="contact-form-input" id="dropdown" name="title-dropdown">
+                                        <option value="option1">Mr</option>
+                                        <option value="option2">Mrs</option>
+                                        <option value="option3">Ms</option>
+                                        <option value="option4">Dr</option>
+                                        <option value="option5">Prof</option>
+                                    </select>
+                                </div>
+                            </div>    
+
+                            <div class="contact-form-box">       
+                                <div class="contact-form-box-input">
+                                    <label for = "fname" class = "contact-form-label">
+                                        First Name
+                                    </label>
+
+                                    <input type = "text" 
+                                        class = "contact-form-input" 
+                                        placeholder = "Jane"
+                                        id="fname">
+                                </div>   
+                                
+                                <div class="contact-form-box-input">
+                                    <label for = "lname" class = "contact-form-label">
+                                        Last Name
+                                    </label>
+
+                                    <input type = "text" 
+                                        class = "contact-form-input" 
+                                        placeholder = "Doe"
+                                        id="lname">
+                                </div>    
+                            </div> 
+                            
+                            <div class="contact-form-box">       
+                                <div class="contact-form-box-input">
+                                    <label for="email" class="contact-form-label">
+                                        Email
+                                    </label>
+
+                                    <input type = "email" 
+                                        class = "contact-form-input" 
+                                        placeholder = "someone@example.com" 
+                                        id = "email">
+                                </div>    
+                                
+                                <div class="contact-form-box-input">
+                                    <label for="telephone" class="contact-form-label">
+                                        Telephone
+                                    </label>
+
+                                    <input type = "tel" 
+                                        class = "contact-form-input" 
+                                        placeholder = " " 
+                                        id = "tele">
+                                </div>        
+                            </div> 
+                            
+                            <div class="contact-form-box">       
+                                <div class="contact-form-box-input">
+                                    <label for="company" class="contact-form-label">
+                                        Company
+                                    </label>
+
+                                    <input type = "text" 
+                                        class = "contact-form-input" 
+                                        placeholder = " " 
+                                        id = "company">
+                                </div>    
+                                
+                                <div class="contact-form-box-input">
+                                    <label for="dropdown" class = "contact-form-label">
+                                        Type
+                                    </label>
+
+                                    <select class="contact-form-input" id="dropdown" name="type-dropdown">
+                                        <option value="option1">Sales Lead</option>
+                                        <option value="option2">Support</option>
+                                    </select>
+                                </div>        
+                            </div>
+                            
+                            <div class="contact-form-box"> 
+                                <div class="contact-form-box-input"> 
+                                    <label for="dropdown" class = "contact-form-label">
+                                        Assigned To
+                                    </label>
+
+                                    <select class="contact-form-input" id="dropdown" name="assigned-dropdown">
+                                        <option value="[Note: Insert Code Here]"></option>
+                                    </select>
+                                </div>    
+                            </div>
+                        </div>
+    
+                        <button type ="submit" class="btn" id="contact-btn" onclick="">Save</button>
+                    </form>
+                </div>  
+            </section>
+
+            <section class="dashboard-user" id="user">
+
+                <div class="user-dashboard-contents">
+                    <h1 class="user-title">Users</h1>
+                    <button class="btn" id="user-btn" onclick=""> Add User </button>
+                </div>
+
+                <div class="user-area-contents">    
+                    <table id="user-table">
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Created</th>
+                        </tr>
+
+                        <tr>
+                            <td>Mr. Josiah-John Green</td>
+                            <td>josiahjohngreen@gmail.com</td>
+                            <td>Member</td>
+                            <td>2023-12-7 10:48:00 PM</td>
+                        </tr>
+                    </table>
+                </div>    
+            </section>
+
+            <section class="dashboard-new" id="new">
+
+                <div class="view-dashboard-contents">
+                    <h1 class="contacts-title">New User</h1>
+                </div>
+
+                <div class="new-form-wrapper">
+                    <form action="" class="form" id="new-form">                        
+                        <div class="new-form-content">
+                            <div class="new-form-box">       
+                                <div class="new-form-box-input">
+                                    <label for = "fname" class = "new-form-label">
+                                        First Name
+                                    </label>
+
+                                    <input type = "text" 
+                                        class = "new-form-input" 
+                                        placeholder = "Jane"
+                                        id="fname">
+                                </div>   
+                                
+                                <div class="new-form-box-input">
+                                    <label for = "new-lname" class = "new-form-label">
+                                        Last Name
+                                    </label>
+
+                                    <input type = "text" 
+                                        class = "new-form-input" 
+                                        placeholder = "Doe"
+                                        id="lname">   
+                                </div>    
+                            </div> 
+                            
+                            <div class="new-form-box">       
+                                <div class="new-form-box-input">
+                                    <label for="email" class="new-form-label">
+                                        Email
+                                    </label>
+
+                                    <input type = "email" 
+                                        class = "new-form-input" 
+                                        placeholder = "something@example.com" 
+                                        id = "email">
+                                </div>    
+                                
+                                <div class="new-form-box-input">
+                                    <label for="password" class="new-form-label">
+                                        Password
+                                    </label>
+
+                                    <input type = "password" 
+                                        class = "new-form-input" 
+                                        placeholder = " " 
+                                        id = "password">
+                                </div>        
+                            </div> 
+                            
+                            <div class="new-form-box"> 
+                                <div class="new-form-box-input">
+                                    <label for="dropdown" class = "new-form-label">
+                                        Role
+                                    </label>
+    
+                                    <select class="new-form-input" id="dropdown" name="assigned-dropdown">
+                                        <option value="option1">Member</option>
+                                        <option value="option2">Admin</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <button type ="submit" class="btn" id="new-btn" onclick="">Save</button>
+                    </form>
+                </div>  
+            </section>
+
+            <section class="dashboard-view" id="view">
+
+                <div class="view-dashboard-contents">    
+                    
+                    <div class="view-image">
+                        <img src="user.png" alt="View Image" class="view-img">
+                    </div>
+
+                    <div class="view-details"> <!-- Note: JS Needed -->
+                        <h1 class="view-title">Mr. Josiah-John Green</h1>
+                        <p class="view-created">Created on December 7th 2023.</p>
+                        <p class="view-updated">Updated on December 7th 2023.</p>
+                    </div>                        
+
+                    <div class="button-view">
+                        <button class="btn" id="assign-btn" onclick=""> <i class="fa-solid fa-hand"></i> Assign to me </button>
+                        <button class="btn" id="switch-btn" onclick=""> <i class="fa-solid fa-arrows-left-right"></i> Switch to Sales Lead </button>    
+                    </div>
+                </div>
+
+                <div class="view-description"> <!-- Note: JS Needed -->
+                    
+                    <div class="view-description-content">
+                        <h6 class="view-content-label" id="view-email">Email</h6>
+                        <p class="view-content" id="view-email-address">josiahjohngreen@gmail.com</p>
+                    </div>
+
+                    <div class="view-description-content">
+                        <h6 class="view-content-label" id="view-tele">Telephone</h6>
+                        <p class="view-content" id="view-tele-no">(876)-208-2517</p>
+                    </div>
+
+                    <div class="view-description-content">
+                        <h6 class="view-content-label" id="view-company">Company</h6>
+                        <p class="view-content" id="view-company-name">StackGROW</p>
+                    </div>
+
+                    <div class="view-description-content">
+                        <h6 class="view-content-label" id="view-assigned">Assigned To</h6>
+                        <p class="view-content" id="view-role">Member</p>
+                    </div>                 
+                    
+                </div>
+
+                <div class="view-notes">   
+                    
+                    <h6 class="view-note-title"><i class=""></i> Notes</h6>
+
+                    <hr class="view-notes-line">
+
+                    <div class="comment-section"> <!-- Note: JS Needed -->
+                        <h6 class="comment-name">Jane Doe</h6>
+                        <p class="comment">Lorem Ipsum set nef unt to vet lorem femry set nef unt to vet lorem femryset nef unt to vet lorem femry set nef unt to vet lorem femry
+                            set nef unt to vet lorem femryset nef unt to vet lorem femryset nef unt to vet lorem femryset nef unt to vet lorem femry.
+                        </p>
+                        <p class="comment-date">December 7th 2023 at 4:00 PM by David Wallace</p>
+                    </div>
+
+                    <div class="comment-form-wrapper">
+                        <form action="" class="form" id="comment-form">
+                            <h6 class="comment-form-title">Add a note about Josiah-John</h6> 
+
+                            <textarea name="comment-area" placeholder="Enter details here" id="" cols="30" rows="10" class="comment-area"></textarea>
+
+                            <button class="btn" id="view-btn" onclick=""> Add Note </button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+
+
+
+
