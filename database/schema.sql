@@ -30,7 +30,8 @@ CREATE TABLE IF NOT EXISTS Notes (
     contact_id INT NOT NULL,
     comment TEXT,
     created_by INT NOT NULL,
-    created_at DATETIME DEFAULT NOW()
+    created_at DATETIME DEFAULT NOW(),
+    FOREIGN KEY (contact_id) REFERENCES Contacts(id)
 );
 
 INSERT INTO Users (firstname, lastname, password, email, role)
