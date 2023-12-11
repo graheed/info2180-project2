@@ -45,7 +45,7 @@ switch($action) {
         break;
     case 'getUsers':
         $users = UserHelper::getUsers($db);
-    
+
         echo '<section class="dashboard-user" id="user">
                 <div class="user-dashboard-contents">
                     <h1 class="user-title">Users</h1>
@@ -74,7 +74,6 @@ switch($action) {
                 </div>    
             </section>';
         break;
-
     case 'home':
         $filter = $_POST['id'];
         $contacts = UserHelper::getContacts($db);
@@ -104,23 +103,24 @@ switch($action) {
 
                 <nav class = "nav">                  
                     <ul class = "nav-list">
-                        <li class = "nav-item" data-filter="all">
+                        <li class = "nav-item filter-item" data-filter="all">
                             <a href = "#" class = "nav-link"> All </a>
                         </li>
 
-                        <li class = "nav-item" data-filter="Sales Lead">
+                        <li class = "nav-item filter-item" data-filter="Sales Lead">
                             <a href = "#" class = "nav-link"> Sales Leads </a>
                         </li>
 
-                        <li class = "nav-item" data-filter="Support">
+                        <li class = "nav-item filter-item" data-filter="Support">
                             <a href = "#" class = "nav-link"> Support </a>
                         </li>
 
-                        <li class = "nav-item" data-filter="Assigned to me">
+                        <li class = "nav-item filter-item" data-filter="Assigned to me">
                             <a href = "#" class = "nav-link"> Assigned to me </a>
                         </li>
                     </ul> 
                 </nav>
+
             </div>
 
             <table id="home-table">
@@ -249,7 +249,6 @@ switch($action) {
             </div>  
         </section>';
         break;
-
     case 'addNewContact':
         $formData = json_decode($_POST['formData'], true);
         $title = $formData['title'];
@@ -344,7 +343,6 @@ switch($action) {
         </div>  
     </section>';
     break;
-
     case 'viewContact':
         $id = $_POST['id'];
         $contactFetched = UserHelper::getContactById($db, $id);

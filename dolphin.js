@@ -85,7 +85,7 @@ $(document).ready(function() {
                         alert("user Successfully Added")
                         loadDashboard('newUser');
                     } else {
-                        alert("Error creating contact");
+                        alert("Error Creating User");
                     }
                 }
             });
@@ -93,21 +93,17 @@ $(document).ready(function() {
     });
 
 
-    $(document).on('click', '.nav-item', function(event) {
-            event.preventDefault();
-            var filter = $(this).data('filter');
-            loadDashboard('home', filter);
-    });
+    $(document).on('click', '.filter-item .nav-link', function(event) {
+        event.preventDefault();
+        var filter = $(this).parent().data('filter');
+        loadDashboard('home', filter);
+    });    
 
     $(document).on('click', '#table-view-button', function(event) {
         
         event.preventDefault();
         var id = $(this).parent().data('id');
         loadDashboard('viewContact', id);
-            
-        
-        
-
     });
     
 
@@ -205,6 +201,15 @@ $(document).ready(function() {
     function hideNewContact() {
         $('.dashboard-contacts').css('display', 'none'); // Change display to none
     }
+
+    function hideNew() {
+        $('.dashboard-new').css('display', 'none'); // Change display to none
+    }
+
+    function hideView() {
+        $('.dashboard-view').css('display', 'none'); // Change display to none
+    }
+
     
 
     // Call loadDashboard when home is clicked
@@ -212,6 +217,8 @@ $(document).ready(function() {
         e.preventDefault();
         hideUsers();
         hideNewContact();
+        hideNew();
+        hideView();
         loadDashboard('home');
     });
 
@@ -219,6 +226,8 @@ $(document).ready(function() {
         e.preventDefault();
         hideDashboard();
         hideNewContact();
+        hideNew();
+        hideView();
         loadDashboard('getUsers');
     });
 
@@ -226,6 +235,8 @@ $(document).ready(function() {
         e.preventDefault();
         hideDashboard();
         hideUsers();
+        hideNew();
+        hideView();
         loadDashboard('newContact');
     });
 
